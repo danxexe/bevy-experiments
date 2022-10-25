@@ -1,0 +1,5 @@
+{
+    "rust-analyzer.lens.implementations.enable": false,
+    "editor.hover.delay": 100,
+    "rust-analyzer.hover.documentation.enable": true
+}
