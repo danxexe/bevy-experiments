@@ -7,9 +7,11 @@ use rand::rngs::StdRng;
 use bevy_egui::{egui, EguiContext, EguiPlugin};
 
 mod core;
+mod player;
 mod heron_physics_plugin;
 
 use crate::core::*;
+use crate::player::*;
 use crate::heron_physics_plugin::*;
 
 #[derive(Component)]
@@ -45,6 +47,7 @@ fn main() {
         .add_plugin(HeronPhysicsPlugin)
         .add_system(gui)
         .add_system(zoom_camera)
+        .add_system(player_control)
         // .add_system_to_stage(CoreStage::Last, debug_position)
         .run();
 }
@@ -87,7 +90,7 @@ fn setup(
                 color: color,
             })
             .insert(Transform {
-                translation: Vec3::new(x, y, 1.0),
+                translation: Vec3::new(x, y, 0.99999),
                 ..Transform::default()
             })
             ;
